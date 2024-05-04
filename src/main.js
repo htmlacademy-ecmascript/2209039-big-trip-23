@@ -1,9 +1,11 @@
-import { render } from './render.js';
-import Filters from './view/filters.js';
-import Sorting from './view/sorting.js';
+import TripPresenter from './presenter/trip-presenter';
+import HeaderPresenter from './presenter/header-presenter';
 
-const siteFiltersElement = document.querySelector('.trip-controls__filters');
-const siteSortingElement = document.querySelector('.trip-events');
+const tripSection = document.querySelector('.trip-events');
+const headerContainer = document.querySelector('.trip-main');
 
-render(new Filters(), siteFiltersElement);
-render (new Sorting(), siteSortingElement);
+const tripListPresenter = new TripPresenter({container: tripSection});
+const mainHedaerPresenter = new HeaderPresenter ({container: headerContainer});
+
+tripListPresenter.init();
+mainHedaerPresenter.init();
